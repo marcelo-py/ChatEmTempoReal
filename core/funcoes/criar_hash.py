@@ -2,7 +2,7 @@ import hashlib
 
 
 # esse função serve para retornar a combinação da hash entre dois IDs não importanto a ordem.
-def generate_room_name(id1, id2):
+def gerar_nome_da_sala(id1, id2):
     ids = [str(id1), str(id2)]
 
     ids.sort()  # ordena os IDs em ordem crescente
