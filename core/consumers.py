@@ -1,4 +1,7 @@
 import json
+from .models import Sala, Mensagem
+from django.contrib.auth.models import User
+
 
 from channels.generic.websocket import AsyncWebsocketConsumer
 from urllib.parse import parse_qs
@@ -9,7 +12,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.room_name = self.scope["url_route"]["kwargs"]["room_name"] # vem la da URL ver ela qual quer coisa
         self.room_group_name = "chat_%s" % self.room_name
-        
+
         # Join room group
         await self.channel_layer.group_add(
             self.room_group_name, self.channel_name
@@ -28,6 +31,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
+
+        user = self.scope['query_string'].decode().split('=')[1]
+        print('O suaurio da URL é >>>>>>', user)
 
         # type = evento
         # com isso eu posso passar id objetos de user e etc para capturar

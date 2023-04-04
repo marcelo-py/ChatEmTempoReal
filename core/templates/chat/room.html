@@ -6,6 +6,7 @@
     <title>Chat Room</title>
 </head>
 <body>
+    <h2>{{user.username}}</h2>
     <textarea id="chat-log" cols="100" rows="20">
     {%for mensagem in mensagens%}
     {{mensagem.remetente}}: {{mensagem.mensagem}}

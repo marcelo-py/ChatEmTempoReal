@@ -25,7 +25,7 @@ def room(request, room_name):
     user = request.GET.get('user') # Id do outro usuario 
     # se o room_name não tiver 32 caracteres não cria a sala mas levanta um erro de não encontrado
     # Ou se a comparação da hash (room_name) for diferente na nova geração dela
-    if len(room_name) != 32 or gerar_nome_da_sala(user, request.user.id) != room_name:
+    if len(room_name) != 36 or gerar_nome_da_sala(user, request.user.id) != room_name:
         raise Http404
     
     #try:
