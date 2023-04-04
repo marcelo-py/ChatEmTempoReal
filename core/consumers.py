@@ -28,12 +28,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
-        
-        query_string = self.scope['query_string'].decode()
-        query_params = parse_qs(query_string)
-        user = query_params.get('user', [None])[0]
-
-        print('Print user de dentro do consumer >>>>', user)
 
         # type = evento
         # com isso eu posso passar id objetos de user e etc para capturar
