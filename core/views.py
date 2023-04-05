@@ -28,15 +28,9 @@ def room(request, room_name):
     if len(room_name) != 36 or gerar_nome_da_sala(user, request.user.id) != room_name:
         raise Http404
     
-    #try:
-      #  sala = get_object_or_404(Sala, sala=room_name)
+    sala_obj = Sala.objects.filter(sala=room_name).first()
     
-   # except Http404:
-    #    pass
-        
-    mensagens = Mensagem.objects.filter(
-        Q(destinatario__id=request.user.id) | Q(remetente__id=request.user.id)
-        )
+    mensagens = Mensagem.objects.filter(sala=sala_obj)
     info_user = User.objects.filter(id=user)[0]
     return render(request, "chat/room.html", {
                                 "room_name": room_name,

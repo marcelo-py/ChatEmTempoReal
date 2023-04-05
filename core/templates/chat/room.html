@@ -9,7 +9,7 @@
     <h2>{{user.username}}</h2>
     <textarea id="chat-log" cols="100" rows="20">
     {%for mensagem in mensagens%}
-    {{mensagem.remetente}}: {{mensagem.mensagem}}
+        {{mensagem.remetente}}: {{mensagem.mensagem}}
     {%endfor%}
     </textarea><br>
     <input id="chat-message-input" type="text" size="100"><br>
@@ -29,7 +29,7 @@
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             console.log(data)
-            document.querySelector('#chat-log').value += (data.message + '\n');
+            document.querySelector('#chat-log').value += (`${data.remetente}: ` + data.message + '\n');
         };
 
         chatSocket.onclose = function(e) {
