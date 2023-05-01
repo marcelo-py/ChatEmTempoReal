@@ -4,6 +4,9 @@
 Se for cair de cara nisso sem saber nada (como eu no começo), lembre-se que as urls que direcionam para uma pagina especifica não influenciam nas urls das conexões websockes.
 **Adicione alguns superusuarios para serem listados e fazer o teste**
 
+## Referências
+https://channels.readthedocs.io/en/stable/tutorial/index.html
+
 ## Instale
 Clone esse repositório e ```pip install -r requirements.txt```
 
