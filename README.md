@@ -2,7 +2,7 @@
 
 ## Detalhes
 Se for cair de cara nisso sem saber nada (como eu no começo), lembre-se que as urls que direcionam para uma pagina especifica não influenciam nas urls das conexões websockes.
-**Adicione alguns superusuarios para serem listados fazer o teste**
+**Adicione alguns superusuarios para serem listados e fazer o teste**
 
 ## Instale
 Clone esse repositório e ```pip install -r requirements.txt```
@@ -61,7 +61,7 @@ websocket_urlpatterns = [
 ]
 ```
 quando eu digo que ele é parecido com o ```urls.py```
-é por que ele chama meio que uma "views.py" (```consumers.ChatConsumer.as_asgi()```) para lidar com as requisições no servidor
+é por que ele chama meio que uma "view" (```consumers.ChatConsumer.as_asgi()```) para lidar com as requisições no servidor
 
 ### consumers.py
 Responsável por receber as mensagens WebSocket de entrada e produzir uma resposta WebSocket de saída.
